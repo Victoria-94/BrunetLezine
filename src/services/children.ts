@@ -7,7 +7,7 @@ export const childrenService = {
     return data;
   },
 
-  getById: async (id: string) => {
+  getById: async (id: number) => {
     const { data } = await api.get<Child>(`/children/${id}`);
     return data;
   },

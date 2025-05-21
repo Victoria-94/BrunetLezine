@@ -1,17 +1,14 @@
 export interface Child {
-  id: string;
-  name: string;
-  birthDate: string;
-  guardianName: string;
-  guardianPhone: string;
-  level: Level;
-  evaluations: Evaluation[];
-  createdAt: string;
-  updatedAt: string;
+  id: number;
+    name: string;
+    birthDate: Date;
+    registerDate: Date;
+    gender: string;
+    cedula: string;
 }
 
 export interface Tutor {
-  id: string;
+  id: number;
   name: string;
   email: string;
   specialization: string;
@@ -42,7 +39,7 @@ export interface Sublevel {
 
 export interface Evaluation {
   id: string;
-  childId: string;
+  childId: number;
   date: string;
   levelId: string;
   sublevelId: string;

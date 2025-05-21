@@ -92,7 +92,7 @@ export const mockTutors: Tutor[] = [
     name: 'María Rodriguez',
     email: 'maria.rodriguez@example.com',
     phone: '593-987654321',
-    specialization: 'Educación Inicial',
+    specialization: 'Estimuladora Temprana',
     assignedLevels: [mockLevels[0], mockLevels[1]],
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),

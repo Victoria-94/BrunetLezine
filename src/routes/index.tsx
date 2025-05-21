@@ -18,6 +18,9 @@ import TestPage from '../pages/TestPage';
 //import ProgressPage from '../pages/ProgressPage';
 //import ContentPage from '../pages/ContentPage';
 import RegisterTutor from '../pages/RegisterTutor';
+import ChildrenRegister from '../pages/ChildrenRegister';
+import EvaluacionNueva from '../pages/EvaluacionNueva';
+
 
 // Protected route HOC
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -58,7 +61,13 @@ const AppRoutes: React.FC = () => {
           </RoleRoute>
         </ProtectedRoute>
       } />
-      
+      <Route path="/ninos/nuevo" element={
+        <ProtectedRoute>
+           <RoleRoute allowedRoles={['admin']}>
+              <ChildrenRegister />
+           </RoleRoute>
+        </ProtectedRoute>
+       } />
       
       <Route path="/ninos/:id" element={
         <ProtectedRoute>
@@ -99,7 +108,13 @@ const AppRoutes: React.FC = () => {
           </RoleRoute>
         </ProtectedRoute>
       } />
-    
+    <Route path="/evaluaciones/nuevo" element={
+        <ProtectedRoute>
+          <RoleRoute allowedRoles={['admin']}>
+            <EvaluacionNueva />
+          </RoleRoute>
+        </ProtectedRoute>
+      } />
       <Route path="/evaluaciones/:id" element={
         <ProtectedRoute>
           <RoleRoute allowedRoles={['admin']}>
@@ -107,9 +122,6 @@ const AppRoutes: React.FC = () => {
           </RoleRoute>
         </ProtectedRoute>
       } />
-      
-   
-      
       {/* Tutor Routes */}
       <Route path="/test" element={
         <ProtectedRoute>

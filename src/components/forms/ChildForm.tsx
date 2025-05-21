@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Layout from '../components/layout/Layout';
-import Button from '../components/shared/Button';
-import { childrenService } from '../services/children'; // crea este service si aún no lo tienes
+import Layout from '../layout/Layout';
+import Button from '../shared/Button';
+import { childrenService } from '../../services/children'; 
 
 const RegisterChild: React.FC = () => {
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
-    id: '',
+    id: 0,
     name: '',
-    birthDate: '',
-    registerDate: '',
+    birthDate: 0,
+    registerDate: 0,
     gender: '',
     cedula: '',
   });
@@ -24,7 +24,9 @@ const RegisterChild: React.FC = () => {
     e.preventDefault();
 
     try {
-      await childrenService.create(formData); // conecta con tu backend
+      await childrenService.create(formData as any); // conecta con tu backend
+      await loadChildren(); // si está en tu store
+      
       alert('Niño registrado con éxito');
       navigate('/ninos');
     } catch (error) {
@@ -116,3 +118,7 @@ const RegisterChild: React.FC = () => {
 };
 
 export default RegisterChild;
+function loadChildren() {
+  throw new Error('Function not implemented.');
+}
+

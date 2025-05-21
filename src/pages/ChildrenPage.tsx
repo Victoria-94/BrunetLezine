@@ -14,8 +14,8 @@ const ChildrenPage: React.FC = () => {
   const children = getChildren();
   
   const filteredChildren = children.filter(child => 
-    child.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    child.guardianName.toLowerCase().includes(searchTerm.toLowerCase())
+    child.name.toLowerCase().includes(searchTerm.toLowerCase())  
+    //child.guardianName.toLowerCase().includes(searchTerm.toLowerCase())
   );
   
   return (
@@ -33,15 +33,7 @@ const ChildrenPage: React.FC = () => {
             onChange={e => setSearchTerm(e.target.value)}
           />
         </div>
-        
-        <Button 
-          icon={<UserPlus size={18} />}
-          onClick={() => {
-            // Open registration modal or navigate to create page
-          }}
-        >
-          Nuevo Niño
-        </Button>
+       
       </div>
       
       {/* Tabs */}
@@ -100,19 +92,13 @@ const ChildrenPage: React.FC = () => {
                       </div>
                       <div className="ml-4">
                         <div className="text-sm font-medium text-gray-900">{child.name}</div>
-                        <div className="text-sm text-gray-500">{child.level.name}</div>
+                        
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="w-full bg-gray-200 rounded-full h-2.5">
-                      <div 
-                        className="h-2.5 rounded-full" 
-                        style={{ 
-                          width: `${Math.min(child.evaluations.length * 20, 100)}%`,
-                          backgroundColor: child.level.color 
-                        }}
-                      ></div>
+                      
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -131,9 +117,8 @@ const ChildrenPage: React.FC = () => {
               className="mb-4 rounded-full w-16 h-16 flex items-center justify-center p-0"
               icon={<Plus size={24} />}
               iconPosition="left"
-              onClick={() => {
-                // Open registration form
-              }}
+              onClick={() => navigate('/ninos/nuevo')
+              }
             />
             <p className="text-gray-500">Agregar nuevo niño</p>
           </div>

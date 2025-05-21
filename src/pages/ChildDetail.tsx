@@ -146,12 +146,14 @@ const ChildDetail: React.FC = () => {
                 Evaluaciones
               </h3>
               
-              <Button 
-                icon={<PlusCircle size={18} />}
-                onClick={() => navigate(`/evaluaciones/nueva/${child.id}`)}
-              >
-                Nueva Evaluación
-              </Button>
+              <Button
+        onClick={() => {
+          console.log('Navegando a /evaluaciones/nuevo...');
+          navigate('/evaluaciones/nuevo');
+        }}
+      >
+        Realizar Nueva Evaluación
+      </Button>
             </div>
             
             {evaluations.length > 0 ? (
